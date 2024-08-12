@@ -6,5 +6,6 @@ import { MovieComponent } from '../movie/movie.component';
   standalone: true,
   selector: 'movies',
   templateUrl: 'movies.component.html',
+  styleUrl: 'movies.component.css',
 })
 export class MoviesComponent {}
