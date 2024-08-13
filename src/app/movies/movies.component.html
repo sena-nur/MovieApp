@@ -5,12 +5,19 @@
   <ul class="list-group list-group-flush">
     <li
       *ngFor="let movie of movieList"
+      (click)="onSelect(movie)"
       class="list-group-item d-flex justify-content-between align-items-center"
+      [class.active]="movie === selectedMovie"
     >
       <span>
-        <span class="badge bg-primary"> {{ movie.id }}</span> {{ movie.name }}
+        <span class="badge bg-primary">{{ movie.id }}</span> {{ movie.name }}
       </span>
-      <button type="button" class="btn-close" aria-label="Close"></button>
+      <button
+        type="button"
+        (click)="onClose($event)"
+        class="btn-close"
+        aria-label="Close"
+      ></button>
     </li>
   </ul>
 </div>
