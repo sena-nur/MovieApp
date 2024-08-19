@@ -5,6 +5,7 @@ import { Movie } from '../movie';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 import { MovieService } from '../movie.service';
+import { LoggingService } from '../logging.service';
 
 @Component({
   imports: [MovieComponent, CommonModule, FormsModule, MovieDetailComponent],
@@ -16,10 +17,10 @@ import { MovieService } from '../movie.service';
 export class MoviesComponent {
   title = 'Movie List';
   movieList: Movie[] = [];
+
   selectedMovie: Movie | undefined;
 
   constructor(private movieService: MovieService) {}
-
   ngOnInit(): void {
     this.getMovies();
   }

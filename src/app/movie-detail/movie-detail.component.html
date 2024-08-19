@@ -1,8 +1,8 @@
 <div class="card" *ngIf="movie">
   <div class="card-body">
     <span class="badge badge-warning">
-      <h2>{{ movie?.name }}</h2>
-      <p class="text-black">{{ movie?.description }}</p>
+      <h2>{{ movie.name }}</h2>
+      <p class="text-black">{{ movie.description }}</p>
     </span>
     <div class="input-group">
       <input type="text" [(ngModel)]="movie!.name" class="form-control" />
