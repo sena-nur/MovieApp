@@ -1,1 +1,14 @@
-<p>movie-detail works!</p>
+<div class="card" *ngIf="movie">
+  <div class="card-body">
+    <span class="badge badge-warning">
+      <h2>{{ movie?.name }}</h2>
+      <p class="text-black">{{ movie?.description }}</p>
+    </span>
+    <div class="input-group">
+      <input type="text" [(ngModel)]="movie!.name" class="form-control" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

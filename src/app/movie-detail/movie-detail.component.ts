@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Movie } from '../movie';
 
 @Component({
-  selector: 'app-movie-detail',
+  selector: 'movie-detail',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule], // Import CommonModule to use *ngIf
   templateUrl: './movie-detail.component.html',
-  styleUrl: './movie-detail.component.css'
+  styleUrls: ['./movie-detail.component.css'],
 })
 export class MovieDetailComponent {
-
+  @Input() movie: Movie | undefined;
 }

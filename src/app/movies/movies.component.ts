@@ -4,13 +4,14 @@ import { Movies } from '../movie.datasource';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../movie';
 import { FormsModule } from '@angular/forms';
+import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 
 @Component({
-  imports: [MovieComponent, CommonModule, FormsModule],
+  imports: [MovieComponent, CommonModule, FormsModule, MovieDetailComponent],
   standalone: true,
   selector: 'movies',
   templateUrl: 'movies.component.html',
-  styleUrl: 'movies.component.css',
+  styleUrls: ['movies.component.css'],
 })
 export class MoviesComponent {
   title = 'Movie List';
@@ -22,7 +23,7 @@ export class MoviesComponent {
   }
 
   onClose(event: MouseEvent): void {
-    event.stopPropagation(); // Prevent event from propagating to the li element
-    this.selectedMovie = undefined; // Clear the selected movie
+    event.stopPropagation();
+    this.selectedMovie = undefined;
   }
 }
