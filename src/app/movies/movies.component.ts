@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MovieComponent } from '../movie/movie.component';
-import { Movies } from '../movie.datasource';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../movie';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
+import { MovieService } from '../movie.service';
 
 @Component({
   imports: [MovieComponent, CommonModule, FormsModule, MovieDetailComponent],
@@ -15,8 +15,14 @@ import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 })
 export class MoviesComponent {
   title = 'Movie List';
-  movieList = Movies;
+  movieList: Movie[] = [];
   selectedMovie: Movie | undefined;
+
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit(): void {
+    this.getMovies();
+  }
 
   onSelect(movie: Movie): void {
     this.selectedMovie = movie;
@@ -25,5 +31,9 @@ export class MoviesComponent {
   onClose(event: MouseEvent): void {
     event.stopPropagation();
     this.selectedMovie = undefined;
+  }
+
+  getMovies(): void {
+    this.movieList = this.movieService.getMovies();
   }
 }
